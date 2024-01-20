@@ -20,7 +20,7 @@ export const globalTheme = createTheme({
     },
     secondary: {
       main: "#23856D",
-      light: "#F5EBFF",
+      light: "#BDBDBD",
       // dark: will be calculated from palette.secondary.main,
       contrastText: "#47008F",
     },

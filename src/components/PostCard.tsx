@@ -70,7 +70,7 @@ function PostCard({ post }: { post: IPostCardProps }) {
             color="text.secondary"
             className="flex items-center"
           >
-            Learn More <ArrowNext className="ml-2" />
+            Learn More <ArrowNext className="ml-2 text-primary" />
           </Typography>
         </Link>
       </div>

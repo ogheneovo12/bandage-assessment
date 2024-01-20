@@ -8,9 +8,11 @@ import React from "react";
 export function ProductItem({
   product,
   getLink,
+  contentClassName = "text-center"
 }: {
   product: IProduct;
   getLink?: (product: IProduct) => string;
+  contentClassName?: string;
 }) {
   const Wrapper = ({ children }: React.PropsWithChildren) =>
     getLink ? <Link href={getLink(product)}>{children}</Link> : <>{children}</>;
@@ -29,7 +31,7 @@ export function ProductItem({
           />
         </div>
 
-        <div className="p-6 text-center">
+        <div className={`p-6  bg-white ${contentClassName}`}>
           <h5 className="text-base text-color-text-primary font-bold">
             {product.title}
           </h5>
@@ -53,15 +55,17 @@ export function ProductItem({
 export function ProductList({
   products = [],
   getLink,
+  contentClassName
 }: {
   products: IProduct[];
   getLink?: (product: IProduct) => string;
+  contentClassName?: string;
 }) {
   return (
     <Grid container columns={15} spacing={{ xs: "0px", sm: "30px" }}>
       {products.map((product) => (
         <Grid item xs={15} sm={5} lg={3} key={product.id}>
-          <ProductItem product={product} getLink={getLink} />
+          <ProductItem product={product} getLink={getLink} contentClassName={contentClassName} />
         </Grid>
       ))}
     </Grid>

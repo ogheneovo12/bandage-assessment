@@ -1,55 +1,21 @@
 "use client";
+import AccountIcon from "@/assets/svg/account.svg";
+import MenuIcon from "@/assets/svg/ham-menu.svg";
+import SearchIcon from "@/assets/svg/search.svg";
+import { menuItems } from "@/common/mock/menu";
 import {
   Box,
   Collapse,
   Container,
-  Stack,
   Link,
-  useTheme,
-  useMediaQuery,
+  Stack,
   Typography,
+  useMediaQuery,
+  useTheme,
 } from "@mui/material";
 import React, { useMemo } from "react";
-import AccountIcon from "@/assets/svg/account.svg";
-import SearchIcon from "@/assets/svg/search.svg";
-import CartIcon from "@/assets/svg/cart.svg";
-import WishlistIcon from "@/assets/svg/wishlist.svg";
-import MenuIcon from "@/assets/svg/ham-menu.svg";
 import { v4 } from "uuid";
-
-type MenuItem = {
-  name: string;
-  path: string;
-};
-
-const menuItems: MenuItem[] = [
-  {
-    name: "Home",
-    path: "/",
-  },
-  {
-    name: "Shop",
-    path: "/shop",
-  },
-  {
-    name: "About",
-    path: "/about",
-  },
-  {
-    name: "Blog",
-    path: "/blog",
-  },
-  {
-    name: "Contact",
-    path: "/contact",
-  },
-  {
-    name: "Pages",
-    path: "/pages",
-  },
-];
-
-const MobileOnlyMenu: MenuItem[] = [];
+import { CartViewButton, WishlistViewButton } from "./ActionViewButtons";
 
 const MainNav = () => {
   const [open, setOpen] = React.useState(false);
@@ -103,15 +69,8 @@ const MainNav = () => {
             <button className="p-[15px]">
               <SearchIcon />
             </button>
-            <button className="p-[15px]">
-              <CartIcon />
-            </button>
-            <button className="p-[15px] hidden md:inline-block">
-              <WishlistIcon />
-            </button>
-            <button className="p-[15px] hidden md:inline-block">
-              <WishlistIcon />
-            </button>
+            <CartViewButton />
+            <WishlistViewButton />
             <button
               onClick={handleClick}
               className="p-[15px] md:hidden inline-block"

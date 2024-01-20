@@ -9,7 +9,10 @@ const nextConfig = {
       {
         protocol: "https",
         hostname: "cdn.dummyjson.com",
-      },
+      }, {
+        protocol: "https",
+        hostname: "images.placeholders.dev"
+      }
     ],
   },
   webpack(config) {
@@ -27,8 +30,8 @@ const nextConfig = {
       },
       {
         test: /\.svg$/i,
-        issuer: /\.[jt]sx?$/,
-        resourceQuery: { not: /url/ }, // exclude if *.svg?url
+        issuer: fileLoaderRule.issuer,
+        resourceQuery: { not: [...fileLoaderRule.resourceQuery.not, /url/] }, // exclude if *.svg?url
         use: ["@svgr/webpack"],
       }
     );
