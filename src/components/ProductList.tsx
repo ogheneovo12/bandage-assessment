@@ -39,7 +39,7 @@ export function ProductItem({
           <p className="my-[10px] text-sm font-bold text-secondary">
             {product.brand}
           </p>
-          <p className="text-base flex items-center space-x-1">
+          <p className="text-base align-middle">
             <span className="text-muted">
               {formatCurrency(discountPrice?.toFixed(2), "$")}
             </span>{" "}

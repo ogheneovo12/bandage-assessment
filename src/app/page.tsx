@@ -116,7 +116,7 @@ reach your financial goal."
           </div>
         </Container>
       </section>
-      <section className="bg-cta bg-center bg-cover min-h-screen flex items-center justify-center">
+      <section className="overflow-hidden bg-cta bg-center bg-cover min-h-screen flex items-center justify-center">
         <Container className="text-center">
           <Stack
             spacing={"30px"}
