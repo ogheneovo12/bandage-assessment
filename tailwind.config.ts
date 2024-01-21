@@ -8,6 +8,9 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      screens: {
+        xsm: "28.125rem",
+      },
       backgroundImage: {
         cta: "url('/cta.png')",
       },

@@ -1,12 +1,7 @@
-import React from "react";
-import TopNav from "./TopNav";
 import MainNav from "./MainNav";
-import { useMediaQuery } from "@mui/material";
-import { useTheme } from "@emotion/react";
+import TopNav from "./TopNav";
 
 const Navbar = () => {
-  const mobileNav = useMediaQuery("(max-width: 768px)");
-
   return (
     <nav>
       <TopNav />

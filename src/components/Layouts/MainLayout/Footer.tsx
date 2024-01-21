@@ -129,8 +129,8 @@ const Footer = () => {
             direction={{ xs: "column", md: "row" }}
             spacing={"20px"}
           >
-            <Typography variant="h3">Bandage</Typography>
-            <Stack direction={"row"} spacing={"20px"} mt={"20px"}>
+            <Typography data-aos="fade-right" variant="h3">Bandage</Typography>
+            <Stack data-aos="fade-right" direction={"row"} spacing={"20px"} mt={"20px"}>
               <FacebookSolidIcon />
               <TwitterSolidIcon />
               <InstagramSolidIcon />
@@ -145,7 +145,7 @@ const Footer = () => {
             padding={"50px 0px"}
             flexWrap={{ xs: "wrap", md: "nowrap" }}
           >
-            <Grid container rowSpacing={"30px"} mb={{ xs: "30px", md: "0px" }}>
+            <Grid data-aos="fade-up-right" container rowSpacing={"30px"} mb={{ xs: "30px", md: "0px" }}>
               {Object.keys(footerLinks).map((key) => (
                 <Grid item xs={12} sm={6} tablet={4} md={3} key={key}>
                   <Stack spacing={"10px"}>

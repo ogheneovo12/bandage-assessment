@@ -8,18 +8,23 @@ import Image from "next/image";
 import { v4 } from "uuid";
 import FeatureList from "./FeatureList";
 import Products from "./Products";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Bandage - Home",
+};
 
 export default function Home() {
   return (
     <>
       <section className="py-24">
-        <Container>
+        <Container data-aos="fade-dowm">
           <FeaturedProductsMasonry products={products} />
         </Container>
       </section>
       <section>
         <Container>
-          <div className="text-center mb-[56px]">
+          <div data-aos="fade-up" className="text-center mb-[56px]">
             <Typography
               variant="subtitle1"
               visibility={{ xs: "hidden", sm: "visible" }}
@@ -36,7 +41,7 @@ export default function Home() {
       </section>
       <section className="py-20">
         <Container>
-          <div className="text-center mb-[56px]">
+          <div data-aos="fade-down" className="text-center mb-[56px]">
             <Typography variant="subtitle1">Featured Products</Typography>
             <Typography variant="h3">THE BEST SERVICES</Typography>
             <Typography variant="subtitle2">
@@ -48,7 +53,7 @@ export default function Home() {
       </section>
       <section className="py-20">
         <Container>
-          <div className="text-center mb-[56px]">
+          <div data-aos="flip-down" className="text-center mb-[56px]">
             <Typography
               variant="subtitle2"
               fontWeight={"bold"}
@@ -78,7 +83,7 @@ export default function Home() {
         <Container>
           <div className="max-w-[1050px] mx-auto">
             <Grid container columnSpacing={{ xs: "0px", sm: "10px" }}>
-              <Grid item xs={12} md={6}>
+              <Grid data-aos="fade-right" item xs={12} md={6}>
                 <div className="relative">
                   <Typography textAlign={"center"} variant="h3" mb={"28px"}>
                     What they say about us
@@ -92,7 +97,7 @@ reach your financial goal."
                   />
                 </div>
               </Grid>
-              <Grid item container xs={12} md={6} spacing={"5px"}>
+              <Grid data-aos="fade-left" item container xs={12} md={6} spacing={"5px"}>
                 {Array.from({ length: 9 }).map((_, index) => (
                   <Grid item key={v4()} xs={4}>
                     <div className="relative w-full h-[112px] sm:h-[142px]">
@@ -101,6 +106,7 @@ reach your financial goal."
                         src={"https://picsum.photos/200"}
                         alt="Picture of the author"
                         className="object-cover "
+                        sizes="(max-width: 600px) 100vw, 50vw"
                       />
                     </div>
                   </Grid>
@@ -117,6 +123,7 @@ reach your financial goal."
             maxWidth={"571px"}
             mx="auto"
             alignItems={"center"}
+            data-aos="fade-down-left"
           >
             <Typography variant="h6" color={"primary.main"}>
               Designing Better Experience

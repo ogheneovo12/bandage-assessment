@@ -16,13 +16,19 @@ export interface IPostCardProps {
 
 function PostCard({ post }: { post: IPostCardProps }) {
   return (
-    <Paper sx={{ maxWidth: "348px" }} elevation={0} className="!shadow-postCard">
+    <Paper
+      data-aos="zoom-in"
+      sx={{ maxWidth: "348px" }}
+      elevation={0}
+      className="!shadow-postCard"
+    >
       <div className="relative w-full  h-[300px]">
         <Image
           fill
           className="w-full h-full object-cover"
           src={post.thumbnail}
           alt={post.title}
+          sizes="(max-width: 600px) 100vw, 50vw"
         />
       </div>
       <div className="p-6">

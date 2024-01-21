@@ -1,5 +1,4 @@
 "use client";
-import CartIcon from "@/assets/svg/cart.svg";
 import EyeIcon from "@/assets/svg/eye.svg";
 import StarHalf from "@/assets/svg/star-empty.svg";
 import StarIcon from "@/assets/svg/star.svg";
@@ -8,33 +7,31 @@ import { IProduct } from "@/common/types/global";
 import { formatCurrency } from "@/common/utils/currency.utils";
 import { addToWishList, removeFromWishList } from "@/redux/features";
 import { selectWishList } from "@/redux/features/selectors";
-import { useAddToCartMutation } from "@/redux/services/cart.service";
-import { Box, Button, Divider, Stack, Typography } from "@mui/material";
-import { useMemo } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import {
+    Box,
+    Button,
+    Divider,
+    IconButton,
+    NoSsr,
+    Stack,
+    Tooltip,
+    Typography,
+} from "@mui/material";
 import cx from "classnames";
-import { CartActionButton } from "./CartActionButton";
+import { useMemo } from "react";
+import toast from "react-hot-toast";
+import { useDispatch, useSelector } from "react-redux";
+import { CartActionButton } from "../../../components/CartActionButton";
 
 const colors = ["#23A6F0", "#2DC071", "#E77C40", "#252B42"];
 
 function ProductInfo({ product }: { product?: IProduct }) {
   const wishlist = useSelector(selectWishList);
-  const [addToCart] = useAddToCartMutation();
   const dispatch = useDispatch();
   const inWishList = useMemo(
     () => !!wishlist?.find((p) => p.id === product?.id),
     [product, wishlist]
   );
-
-  function handleAddToCart() {
-    try {
-      if (product) {
-        addToCart({ userId: 1, products: [{ id: product?.id, quantity: 1 }] });
-      }
-    } catch (err) {
-      //empty
-    }
-  }
 
   function toggleWishList() {
     if (product) {
@@ -43,8 +40,11 @@ function ProductInfo({ product }: { product?: IProduct }) {
       } else {
         dispatch(addToWishList({ product }));
       }
+      toast.success("WishList Update");
     }
   }
+  const { price = 0, discountPercentage = 0 } = product || {};
+  const discountedPrice = price - price * (discountPercentage / 100);
 
   return (
     <Box padding={"24px"} sx={{ flexGrow: "1" }}>
@@ -61,9 +61,20 @@ function ProductInfo({ product }: { product?: IProduct }) {
           10 Reviews
         </Typography>
       </Stack>
-      <Typography variant="h3" mt="20px">
-        {formatCurrency(product?.price?.toFixed(2) || "0", "$")}
-      </Typography>
+      <Stack mt="20px" direction={"row"} spacing={"5px"} alignItems={"center"}>
+        <Typography
+          variant="h3"
+          mt="20px"
+          sx={{ textDecoration: "line-through" }}
+          color="secondary.light"
+        >
+          {formatCurrency(product?.price?.toFixed(2) || "0", "$")}
+        </Typography>
+        <Typography variant="h3">
+          {formatCurrency(discountedPrice?.toFixed(2), "$")}
+        </Typography>
+      </Stack>
+
       <Stack direction={"row"} alignItems={"center"} mt="5px">
         <Typography variant="h6" color="text.secondary">
           Availability :
@@ -82,7 +93,7 @@ function ProductInfo({ product }: { product?: IProduct }) {
           ></div>
         ))}
       </Stack>
-      <Stack mt="67px" direction={"row"} spacing={"10px"}>
+      <Stack mt="67px" direction={{ xs: "column", sm: "row" }} spacing={"10px"}>
         <Button
           variant="contained"
           sx={{ boxShadow: "none", width: "150px", padding: "10px 20px" }}
@@ -98,18 +109,24 @@ function ProductInfo({ product }: { product?: IProduct }) {
           </Typography>
         </Button>
         <Stack direction={"row"} spacing={"10px"}>
-          <button
-            className={cx("circled-icon", {
-              "bg-secondary text-white": inWishList,
-            })}
-            onClick={toggleWishList}
-          >
-            <WishlistIcon />
-          </button>
-          <CartActionButton product={product} />
-          <button className="circled-icon">
+          <Tooltip title="add product to wishlist">
+            <IconButton
+              aria-label="add product to wishlist"
+              className={cx("circled-icon", {
+                "!bg-secondary !text-white": inWishList,
+              })}
+              onClick={toggleWishList}
+            >
+              <WishlistIcon />
+            </IconButton>
+          </Tooltip>
+
+          <IconButton className="circled-icon">
             <EyeIcon />
-          </button>
+          </IconButton>
+          <NoSsr>
+            <CartActionButton product={product} />
+          </NoSsr>
         </Stack>
       </Stack>
     </Box>

@@ -10,12 +10,20 @@ import { IProduct } from "@/common/types/global";
 import { ApiService } from "@/redux/services";
 import { ProductServiceEndpoints } from "@/redux/services/products.service";
 import { store } from "@/redux/store";
-import { Box, Breadcrumbs, Container, Divider, Link, Stack, Typography } from "@mui/material";
+import {
+  Box,
+  Breadcrumbs,
+  Container,
+  Divider,
+  Link,
+  NoSsr,
+  Stack,
+  Typography,
+} from "@mui/material";
 import ProductExtraInfoTabs from "./ProductExtraInfoTabs";
 import { ProductImageCarousel } from "./ProductImageCarousel";
 import ProductInfo from "./ProductInfo";
-
-
+import { Metadata } from "next";
 
 // USED SERVER SIDE HERE TO SHOW HOW TO USE SERVER SIDE DATA FETCHING
 // CLIENT SIDE CAN BE USED AS WELL
@@ -27,8 +35,12 @@ const getProduct = async (productId: string) => {
       .unwrap();
     store.dispatch(ApiService.util.resetApiState()); //cancel all timers
     return response;
-  } catch (err) { }
+  } catch (err) {}
+};
 
+export const metadata: Metadata = {
+  title: "Product Page",
+  description: "Product Page",
 };
 
 export default async function ProductPage({
@@ -38,29 +50,44 @@ export default async function ProductPage({
 }) {
   const product: IProduct | undefined = await getProduct(params.id);
 
-
   return (
     <>
       <header className="bg-lightgray">
         <Container>
           <Box minHeight={"92px"} padding={"24px 0px"}>
-            <Breadcrumbs separator={<ArrowNextIcon className="text-[#BDBDBD] text-sm font-bold" />}>
-              <Link href="/" >
-                <Typography color={"text.primary"} fontWeight={"bold"} fontSize={"14px"}>Home</Typography>
+            <Breadcrumbs
+              separator={
+                <ArrowNextIcon className="text-[#BDBDBD] text-sm font-bold" />
+              }
+            >
+              <Link href="/">
+                <Typography
+                  color={"text.primary"}
+                  fontWeight={"bold"}
+                  fontSize={"14px"}
+                >
+                  Home
+                </Typography>
               </Link>
-              <Typography color={"secondary.light"} fontWeight={"bold"} fontSize={"14px"}>
+              <Typography
+                color={"secondary.light"}
+                fontWeight={"bold"}
+                fontSize={"14px"}
+              >
                 Shop
               </Typography>
             </Breadcrumbs>
           </Box>
-          <Box minHeight={"598px"} >
-            <Stack direction={"row"} spacing={"30px"}>
-              <ProductImageCarousel productImages={product?.images} />
-               <ProductInfo product={product} />
+          <Box minHeight={"598px"}>
+            <Stack direction={{ xs: "column", md: "row" }} spacing={"30px"}>
+              <NoSsr>
+                <ProductImageCarousel productImages={product?.images} />
+              </NoSsr>
+
+              <ProductInfo product={product} />
             </Stack>
           </Box>
         </Container>
-
       </header>
       <section>
         <Container>
@@ -72,7 +99,13 @@ export default async function ProductPage({
           <Typography variant="h3">BESTSELLER PRODUCTS </Typography>
           <Divider sx={{ color: "primary.secondary", my: "24px" }} />
           <Products hideLoadMore contentClassName="text-left" />
-          <Stack padding={'50px 0px'} direction={"row"} alignItems={"center"} justifyContent={"space-evenly"} flexWrap={"wrap"}>
+          <Stack
+            padding={"50px 0px"}
+            direction={"row"}
+            alignItems={"center"}
+            justifyContent={"space-evenly"}
+            flexWrap={"wrap"}
+          >
             <Brand1 className="m-2" />
             <Brand2 className="m-2" />
             <Brand3 className="m-2" />
@@ -81,7 +114,6 @@ export default async function ProductPage({
             <Brand6 className="m-2" />
           </Stack>
         </Container>
-
       </section>
     </>
   );

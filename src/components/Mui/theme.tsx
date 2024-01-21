@@ -24,6 +24,9 @@ export const globalTheme = createTheme({
       // dark: will be calculated from palette.secondary.main,
       contrastText: "#47008F",
     },
+    success: {
+      main: "#2DC071",
+    },
   },
   components: {
     MuiLink: {
@@ -39,6 +42,7 @@ export const globalTheme = createTheme({
   breakpoints: {
     values: {
       xs: 0,
+      xsm: 450,
       sm: 600,
       tablet: 768,
       md: 900,

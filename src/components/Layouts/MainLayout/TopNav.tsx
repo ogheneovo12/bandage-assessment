@@ -10,6 +10,7 @@ import YoutubeIcon from "@/assets/svg/youtube.svg";
 const TopNav = () => {
   return (
     <Box
+      data-aos="fade-down"
       sx={{
         backgroundColor: "secondary.main",
         color: "#fff",

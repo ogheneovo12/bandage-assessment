@@ -1,5 +1,6 @@
 // import { handleLogout } from "@/redux/features";
 import { MiddlewareAPI, isRejectedWithValue } from "@reduxjs/toolkit";
+import toast from "react-hot-toast";
 // import { toast } from "react-hot-toast";
 
 /**
@@ -44,11 +45,11 @@ export const rtkQueryErrorLogger =
       }
 
       if (action?.payload?.status === "FETCH_ERROR") {
-        console.log(
+        toast.error(
           "Network Error,Please check that you have active internet connection"
         );
       } else {
-        console.error(
+        toast.error(
           serverMessage ||
             action.payload?.data?.error ||
             action?.error?.message ||

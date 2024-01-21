@@ -36,6 +36,7 @@ function FeatureList() {
               icon={feature?.icon}
               description={feature?.description}
               title={feature?.title}
+              data-aos="flip-down"
             />
           </Grid>
         ))}

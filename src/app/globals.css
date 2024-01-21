@@ -4,13 +4,13 @@
 
 @layer components {
   .circled-icon {
-    @apply w-10 h-10 flex items-center justify-center rounded-[44.8px] border border-[#E8E8E8];
+    @apply w-10 h-10 !flex !items-center !justify-center !rounded-[44.8px]  !border-[#E8E8E8];
+    border: 1px solid #e8e8e8 !important;
   }
 }
 
 .wrapper {
-  height: 550px;
-  overflow: hidden;
+  min-height: 550px;
 }
 
 .min-half {

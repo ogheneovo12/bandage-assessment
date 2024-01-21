@@ -29,7 +29,7 @@ const MainNav = () => {
     return !isTabOrBigger && open;
   }, [isTabOrBigger, open]);
   return (
-    <Box>
+    <Box data-aos="fade-down">
       <Container>
         <Stack
           direction={"row"}
@@ -66,11 +66,11 @@ const MainNav = () => {
             >
               <AccountIcon className="mr-2" /> Login / Register
             </Link>
-            <button className="p-[15px]">
+            <button className="p-[15px] hidden md:flex text-primary">
               <SearchIcon />
             </button>
-            <CartViewButton />
-            <WishlistViewButton />
+            <CartViewButton className="hidden md:flex" />
+            <WishlistViewButton className="hidden md:flex" />
             <button
               onClick={handleClick}
               className="p-[15px] md:hidden inline-block"
@@ -86,6 +86,17 @@ const MainNav = () => {
                 {item.name}
               </Link>
             ))}
+            <Link href="/login" className="items-center text-[20px] flex  text-primary">
+              <AccountIcon className="mr-2 text-primary" />
+              <Typography fontSize={"20px"} color={"primary.main"}> Login / Register</Typography>
+            </Link>
+          </Stack>
+          <Stack direction={"row"} justifyContent={"center"} alignItems={"center"}>
+            <button className="p-[15px] flex text-primary">
+              <SearchIcon />
+            </button>
+            <CartViewButton />
+            <WishlistViewButton  />
           </Stack>
         </Collapse>
       </Container>

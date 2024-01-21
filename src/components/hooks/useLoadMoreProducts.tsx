@@ -5,7 +5,7 @@ import { useCallback, useEffect, useState } from "react";
 function useLoadMoreProducts({ limit }: { limit: number } = { limit: 10 }) {
   const [skip, setSkip] = useState(0);
   const [products, setProducts] = useState<IProduct[]>([]);
-  const [getProducts, { data, isFetching, ...queryInfo }] =
+  const [getProducts, { data, isFetching, isUninitialized, ...queryInfo }] =
     useLazyGetProductsQuery();
 
   const handleGetProducts = useCallback(async () => {
@@ -24,8 +24,8 @@ function useLoadMoreProducts({ limit }: { limit: number } = { limit: 10 }) {
   }, [getProducts, limit, skip]);
 
   useEffect(() => {
-    if (!products?.length && !isFetching) {
-      console.log({ products, isFetching });
+    //this should only be triggred once when mounted
+    if (!products?.length && !isFetching && isUninitialized) {
       handleGetProducts();
     }
   }, [handleGetProducts, isFetching, products, products?.length]);
