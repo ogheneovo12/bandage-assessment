@@ -79,7 +79,7 @@ export default function Home() {
           </div>
         </Container>
       </section>
-      <section className="py-20">
+      <section className="py-20 overflow-hidden">
         <Container>
           <div className="max-w-[1050px] mx-auto">
             <Grid container columnSpacing={{ xs: "0px", sm: "10px" }}>

@@ -77,12 +77,14 @@ const Cart = () => {
           </React.Fragment>
         ))}
       </StyledList>
-      {!cart?.products.length && (
+      {!cart?.products.length ? (
         <Box>
           <Typography fontSize={"12px"} textAlign={"center"}>
             Your Cart is empty
           </Typography>
         </Box>
+      ):(
+        <Typography textAlign={"right"} fontWeight={"bold"}>Total: {formatCurrency(cart.discountedTotal?.toFixed(),"$")}</Typography>
       )}
     </Box>
   );

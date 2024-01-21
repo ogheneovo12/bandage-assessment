@@ -20,7 +20,7 @@ function PostCard({ post }: { post: IPostCardProps }) {
       data-aos="zoom-in"
       sx={{ maxWidth: "348px" }}
       elevation={0}
-      className="!shadow-postCard"
+      className="!shadow-postCard mx-auto md:mx-0"
     >
       <div className="relative w-full  h-[300px]">
         <Image
@@ -30,6 +30,9 @@ function PostCard({ post }: { post: IPostCardProps }) {
           alt={post.title}
           sizes="(max-width: 600px) 100vw, 50vw"
         />
+        <span className="absolute rounded-[3px] left-6 top-6 z-10 bg-ribbon text-white text-sm font-bold px-[10px]">
+          NEW
+        </span>
       </div>
       <div className="p-6">
         <Stack

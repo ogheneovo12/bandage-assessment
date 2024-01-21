@@ -21,9 +21,11 @@ const config: Config = {
         secondary: "#23856D",
         muted: "#BDBDBD",
         lightgray: "#FAFAFA",
+        ribbon: "#E74040",
       },
       boxShadow: {
         postCard: "0px 2px 4px 0px rgba(0, 0, 0, 0.10)",
+        ribon: "0px 2px 4px 0px rgba(0, 0, 0, 0.10)",
       },
     },
   },
