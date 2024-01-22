@@ -8,14 +8,14 @@ import { formatCurrency } from "@/common/utils/currency.utils";
 import { addToWishList, removeFromWishList } from "@/redux/features";
 import { selectWishList } from "@/redux/features/selectors";
 import {
-    Box,
-    Button,
-    Divider,
-    IconButton,
-    NoSsr,
-    Stack,
-    Tooltip,
-    Typography,
+  Box,
+  Button,
+  Divider,
+  IconButton,
+  NoSsr,
+  Stack,
+  Tooltip,
+  Typography,
 } from "@mui/material";
 import cx from "classnames";
 import { useMemo } from "react";

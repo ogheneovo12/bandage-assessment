@@ -129,8 +129,15 @@ const Footer = () => {
             direction={{ xs: "column", md: "row" }}
             spacing={"20px"}
           >
-            <Typography data-aos="fade-right" variant="h3">Bandage</Typography>
-            <Stack data-aos="fade-right" direction={"row"} spacing={"20px"} mt={"20px"}>
+            <Typography data-aos="fade-right" variant="h3">
+              Bandage
+            </Typography>
+            <Stack
+              data-aos="fade-right"
+              direction={"row"}
+              spacing={"20px"}
+              mt={"20px"}
+            >
               <FacebookSolidIcon />
               <TwitterSolidIcon />
               <InstagramSolidIcon />
@@ -145,7 +152,12 @@ const Footer = () => {
             padding={"50px 0px"}
             flexWrap={{ xs: "wrap", md: "nowrap" }}
           >
-            <Grid data-aos="fade-up-right" container rowSpacing={"30px"} mb={{ xs: "30px", md: "0px" }}>
+            <Grid
+              data-aos="fade-up-right"
+              container
+              rowSpacing={"30px"}
+              mb={{ xs: "30px", md: "0px" }}
+            >
               {Object.keys(footerLinks).map((key) => (
                 <Grid item xs={12} sm={6} tablet={4} md={3} key={key}>
                   <Stack spacing={"10px"}>
@@ -178,7 +190,10 @@ const Footer = () => {
                 Get in touch
               </Typography>
               <Stack direction={"row"} borderRadius={"5px"}>
-                <SubTextField placeholder="Your Email" sx={{ borderRadius: "5px 0px 5px 0px" }} />
+                <SubTextField
+                  placeholder="Your Email"
+                  sx={{ borderRadius: "5px 0px 5px 0px" }}
+                />
                 <Button
                   variant="contained"
                   color="primary"

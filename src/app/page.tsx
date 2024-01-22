@@ -97,7 +97,14 @@ reach your financial goal."
                   />
                 </div>
               </Grid>
-              <Grid data-aos="fade-left" item container xs={12} md={6} spacing={"5px"}>
+              <Grid
+                data-aos="fade-left"
+                item
+                container
+                xs={12}
+                md={6}
+                spacing={"5px"}
+              >
                 {Array.from({ length: 9 }).map((_, index) => (
                   <Grid item key={v4()} xs={4}>
                     <div className="relative w-full h-[112px] sm:h-[142px]">

@@ -86,17 +86,27 @@ const MainNav = () => {
                 {item.name}
               </Link>
             ))}
-            <Link href="/login" className="items-center text-[20px] flex  text-primary">
+            <Link
+              href="/login"
+              className="items-center text-[20px] flex  text-primary"
+            >
               <AccountIcon className="mr-2 text-primary" />
-              <Typography fontSize={"20px"} color={"primary.main"}> Login / Register</Typography>
+              <Typography fontSize={"20px"} color={"primary.main"}>
+                {" "}
+                Login / Register
+              </Typography>
             </Link>
           </Stack>
-          <Stack direction={"row"} justifyContent={"center"} alignItems={"center"}>
+          <Stack
+            direction={"row"}
+            justifyContent={"center"}
+            alignItems={"center"}
+          >
             <button className="p-[15px] flex text-primary">
               <SearchIcon />
             </button>
             <CartViewButton />
-            <WishlistViewButton  />
+            <WishlistViewButton />
           </Stack>
         </Collapse>
       </Container>

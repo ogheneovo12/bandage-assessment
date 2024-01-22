@@ -79,10 +79,10 @@ export const DialogOrPopup = ({
           horizontal: "left",
         }}
         sx={{
-           '& .MuiPaper-root':{
-            width:"90vw",
-            maxWidth:"500px"
-           }
+          "& .MuiPaper-root": {
+            width: "90vw",
+            maxWidth: "500px",
+          },
         }}
       >
         {children}

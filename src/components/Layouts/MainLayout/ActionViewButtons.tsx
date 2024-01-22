@@ -3,14 +3,13 @@ import CartIcon from "@/assets/svg/cart.svg";
 import WishlistIcon from "@/assets/svg/wishlist.svg";
 import Cart from "@/components/Cart";
 import Wishlist from "@/components/WishLists";
-import { selectCart, selectWishList } from "@/redux/features/selectors";
-import { DialogProps, IconButton, NoSsr, Popover } from "@mui/material";
-import React from "react";
-import { useSelector } from "react-redux";
-import cx from "classnames";
 import useDialogOrPopup, {
   DialogOrPopup,
 } from "@/components/hooks/useDialogOrPopup";
+import { selectCart, selectWishList } from "@/redux/features/selectors";
+import { IconButton, NoSsr } from "@mui/material";
+import cx from "classnames";
+import { useSelector } from "react-redux";
 
 export const CartViewButton = ({
   className = "flex",

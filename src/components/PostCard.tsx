@@ -1,10 +1,9 @@
 "use client";
-import React from "react";
-import { Link, Paper, Stack, Typography, makeStyles } from "@mui/material";
-import Image, { StaticImageData } from "next/image";
+import ArrowNext from "@/assets/svg/arrow-next.svg";
 import ClockIcon from "@/assets/svg/clock.svg";
 import CommentIcon from "@/assets/svg/comment.svg";
-import ArrowNext from "@/assets/svg/arrow-next.svg";
+import { Link, Paper, Stack, Typography } from "@mui/material";
+import Image, { StaticImageData } from "next/image";
 
 export interface IPostCardProps {
   thumbnail: string | StaticImageData;

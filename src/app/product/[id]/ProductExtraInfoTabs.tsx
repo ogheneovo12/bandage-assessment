@@ -6,14 +6,14 @@ import React from "react";
 
 const StyledTabs = styled(Tabs)({
   borderBottom: "1px solid #e8e8e8",
-  justifyContent:"center",
+  justifyContent: "center",
   "& .MuiTabs-indicator": {
     backgroundColor: "transparent",
   },
-  "& .MuiTabs-scroller":{
-    display:"flex",
-    justifyContent:"center"
-  }
+  "& .MuiTabs-scroller": {
+    display: "flex",
+    justifyContent: "center",
+  },
 });
 
 const StyledTab = styled(Tab)(({ theme }) => ({

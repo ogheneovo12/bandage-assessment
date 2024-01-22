@@ -22,10 +22,10 @@ const StyledList = styled(List)<{ component?: React.ElementType }>(
     "& .MuiListItemSecondaryAction-root": {
       [theme.breakpoints.down("xsm")]: {
         position: "static",
-        
-        '& .MuiStack-root':{
-            justifyContent: "center",
-        }
+
+        "& .MuiStack-root": {
+          justifyContent: "center",
+        },
       },
     },
     "& .MuiListItemIcon-root": {
@@ -83,8 +83,10 @@ const Cart = () => {
             Your Cart is empty
           </Typography>
         </Box>
-      ):(
-        <Typography textAlign={"right"} fontWeight={"bold"}>Total: {formatCurrency(cart.discountedTotal?.toFixed(),"$")}</Typography>
+      ) : (
+        <Typography textAlign={"right"} fontWeight={"bold"}>
+          Total: {formatCurrency(cart.discountedTotal?.toFixed(), "$")}
+        </Typography>
       )}
     </Box>
   );

@@ -1,4 +1,4 @@
-import { ICart, IProduct } from "@/common/types/global";
+import { ICart } from "@/common/types/global";
 import { ApiService } from ".";
 
 export interface IBasicCartProduct {

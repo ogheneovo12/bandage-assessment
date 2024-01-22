@@ -8,7 +8,7 @@ import toast from "react-hot-toast";
  */
 
 const ignoreEndpoints = ["logoutCurrentUser", "getLoggedInUserInfo"];
-const ignore401 =["verifyUserEmail", "login"]
+const ignore401 = ["verifyUserEmail", "login"];
 
 export const rtkQueryErrorLogger =
   (api: MiddlewareAPI<any>) => (next: any) => (action: any) => {

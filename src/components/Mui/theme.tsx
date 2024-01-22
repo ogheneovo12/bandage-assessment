@@ -1,7 +1,6 @@
-import { montserrat } from "@/assets/fonts";
 import { createTheme } from "@mui/material/styles";
 import NextLink, { LinkProps } from "next/link";
-import { Ref, RefAttributes, forwardRef } from "react";
+import { forwardRef } from "react";
 
 const LinkBehaviour = forwardRef<HTMLAnchorElement, LinkProps>(
   function LinkBehaviour(props, ref) {

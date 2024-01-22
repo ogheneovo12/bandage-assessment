@@ -118,5 +118,5 @@ export const posts: IPostCardProps[] = [
   {
     ...basePostCard,
     thumbnail: postImage3,
-  }
+  },
 ];
