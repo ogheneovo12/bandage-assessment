@@ -178,7 +178,7 @@ const Footer = () => {
                 Get in touch
               </Typography>
               <Stack direction={"row"} borderRadius={"5px"}>
-                <SubTextField sx={{ borderRadius: "5px 0px 5px 0px" }} />
+                <SubTextField placeholder="Your Email" sx={{ borderRadius: "5px 0px 5px 0px" }} />
                 <Button
                   variant="contained"
                   color="primary"
